@@ -17,4 +17,10 @@ class Product < ApplicationRecord
   def total
     price + tax
   end
+
+  belongs_to :supplier
+
+  #def supplier_id
+  #  Supplier.find_by(id: supplier_id)
+  #end
 end
