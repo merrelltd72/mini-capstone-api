@@ -4,34 +4,32 @@ class ProductsController < ApplicationController
     render :index
   end
 
-  def show
-    @product =Product.find_by(id: params[:id])
-    render :show
-  end
-
   def create
     @product = Product.create(
       name: params[:name],
-      description: params[:description],
-      image_url: params[:image_url],
       price: params[:price],
-      supplier_id: params[:supplier_id]
+      description: params[:description],
+      supplier_id: params[:supplier_id],
     )
     if @product.valid?
+      Image.create(product_id: @product.id, url: params[:image_url])
       render :show, status: 200
     else
       render json: { errors: @product.errors.full_messages }, status: 422
     end
   end
 
+  def show
+    @product = Product.find_by(id: params[:id])
+    render :show
+  end
+
   def update
     @product = Product.find_by(id: params[:id])
     @product.update(
-
       name: params[:name] || @product.name,
-      description: params[:description] || @product.description,
-      image_url: params[:image_url] || @product.image_url,
       price: params[:price] || @product.price,
+      description: params[:description] || @product.description,
     )
     if @product.valid?
       render :show, status: 200
@@ -43,6 +41,6 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find_by(id: params[:id])
     @product.destroy
-    render json: { message: "Successfully removed the product!"}
+    render json: { message: "Product destroyed successfully!" }
   end
 end
