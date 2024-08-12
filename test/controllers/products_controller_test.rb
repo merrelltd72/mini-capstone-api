@@ -1,7 +1,6 @@
 require "test_helper"
 
 class ProductsControllerTest < ActionDispatch::IntegrationTest
-  
   setup do
     @user = User.create(name: "Test", email: "test@test.com", password: "password", admin: true)
     post "/sessions.json", params: { email: "test@test.com", password: "password" }
@@ -22,7 +21,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_response 200
 
     data = JSON.parse(response.body)
-    assert_equal ["id", "name", "price", "supplier", "tax", "total", "is_discounted?", "images", "description", "created_at", "updated_at"].sort, data.keys.sort
+    assert_equal ["id", "name", "price", "supplier", "tax", "total", "is_discounted?", "images", "primary_image_url", "description", "categories", "created_at", "updated_at"].sort, data.keys.sort
   end
 
   test "create" do
@@ -74,5 +73,4 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     delete "/products/#{Product.first.id}.json"
     assert_response 401
   end
-  
 end

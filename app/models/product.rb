@@ -6,6 +6,17 @@ class Product < ApplicationRecord
   validates :description, presence: true
   validates :description, length: { in: 1..500 }
 
+  belongs_to :supplier
+  has_many :images
+  has_many :category_products
+  has_many :categories, through: :category_products
+  #def supplier_id
+  #  Supplier.find_by(id: supplier_id)
+  #end
+
+  has_many :carted_product
+  has_many orders, through: :carted_product
+
   def is_discounted?
     price.to_i <= 10  
   end
@@ -18,12 +29,12 @@ class Product < ApplicationRecord
     price + tax
   end
 
-  belongs_to :supplier
-  has_many :images
-  has_many :orders
-  has_many :category_products
-  has_many :categories, through: :category_products
-  #def supplier_id
-  #  Supplier.find_by(id: supplier_id)
-  #end
+  def primary_image_url
+    if images.length > 0
+      image[0].url
+    else
+      "https://www.svgrepo.com/show/508699/landscape-placeholder.svg"
+    end
+  end
+
 end
