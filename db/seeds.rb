@@ -15,10 +15,10 @@ Supplier.create!(name: "Sony", email: "sony@example.com", phone_number: "3234345
 Supplier.create!(name: "Microsoft", email: "wedabestsoftware@example.com", phone_number: "5155552345")
 Supplier.create!(name: "Nintendo", email: "nintendo@example.com", phone_number: "4423445678")
 
-Product.create!(name: "PS5", description: "Best selling gaming console", price: "499.99")
-Product.create!(name: "Xbox Series X", description: "2nd Best selling gaming console", price: "494.99")
-Product.create!(name: "Nintendo Switch", description: "3rd Best selling gaming console", price: "349.99")
-Product.create!(name: "Nintendo HADSKABAH Switch with Neon Blue and Neon Red Joycon", description: "TV mode Dock your system to enjoy HD gaming on your TV. Tabletop mode Flip the stand to share the screen, then share the fun with a multiplayer game. Handheld mode Pick it up and play with the Joy-Con controllers attached to enjoy the 6.2 inch LCD touch screen This is JoyCon The included JoyCon controllers give you total gameplay flexibility. Choose your control style One controller or two, vertical or sideways, attached to the console or separate.", price: "399,99")
+Product.create!(name: "PS5", description: "Best selling gaming console", price: 499.99)
+Product.create!(name: "Xbox Series X", description: "2nd Best selling gaming console", price: 494.99)
+Product.create!(name: "Nintendo Switch", description: "3rd Best selling gaming console", price: 349.99)
+Product.create!(name: "Nintendo HADSKABAH Switch with Neon Blue and Neon Red Joycon", description: "TV mode Dock your system to enjoy HD gaming on your TV. Tabletop mode Flip the stand to share the screen, then share the fun with a multiplayer game. Handheld mode Pick it up and play with the Joy-Con controllers attached to enjoy the 6.2 inch LCD touch screen This is JoyCon The included JoyCon controllers give you total gameplay flexibility. Choose your control style One controller or two, vertical or sideways, attached to the console or separate.", price: 399.99)
 
 Image.create!(product_id: 1, url: "https://blog.playstation.com/tachyon/2023/10/cd56722db7b991b3d7a33f1bafd55f80d0ac553d.png")
 Image.create!(product_id: 2, url: "https://cdn.mos.cms.futurecdn.net/eH7muHj6y4RyJ5QYkGX8oT-1200-80.jpg")
