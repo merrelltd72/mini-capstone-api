@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ProductsController < ApplicationController
-  before_action :authenticate_admin, except: [:index, :show]
+  before_action :authenticate_admin, except: %i[index show]
 
   def index
     @products = Product.all
@@ -17,7 +19,7 @@ class ProductsController < ApplicationController
       name: params[:name],
       price: params[:price],
       description: params[:description],
-      supplier_id: params[:supplier_id],
+      supplier_id: params[:supplier_id]
     )
     if @product.valid?
       Image.create(product_id: @product.id, url: params[:image_url])
@@ -37,7 +39,7 @@ class ProductsController < ApplicationController
     @product.update(
       name: params[:name] || @product.name,
       price: params[:price] || @product.price,
-      description: params[:description] || @product.description,
+      description: params[:description] || @product.description
     )
     if @product.valid?
       render :show, status: 200
@@ -49,6 +51,6 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find_by(id: params[:id])
     @product.destroy
-    render json: { message: "Product destroyed successfully!" }
+    render json: { message: 'Product destroyed successfully!' }
   end
 end
