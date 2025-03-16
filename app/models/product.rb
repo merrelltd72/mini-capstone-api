@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Product < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: true
@@ -10,15 +12,15 @@ class Product < ApplicationRecord
   has_many :images
   has_many :category_products
   has_many :categories, through: :category_products
-  #def supplier_id
+  # def supplier_id
   #  Supplier.find_by(id: supplier_id)
-  #end
+  # end
 
   has_many :carted_product
   has_many :orders, through: :carted_products
 
   def is_discounted?
-    price.to_i <= 10  
+    price.to_i <= 10
   end
 
   def tax
@@ -30,11 +32,10 @@ class Product < ApplicationRecord
   end
 
   def primary_image_url
-    if images.length > 0
+    if images.length.positive?
       images[0].url
     else
-      "https://www.svgrepo.com/show/508699/landscape-placeholder.svg"
+      'https://www.svgrepo.com/show/508699/landscape-placeholder.svg'
     end
   end
-
 end
