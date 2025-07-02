@@ -16,7 +16,7 @@ class CartedProductsControllerTest < ActionDispatch::IntegrationTest
   test 'index' do
     get '/carted_products.json',
         headers: { 'Authorization' => "Bearer #{@jwt}" }
-    assert_response 200
+    assert_response :ok
 
     data = JSON.parse(response.body)
     assert_equal 1, data.length
@@ -27,7 +27,7 @@ class CartedProductsControllerTest < ActionDispatch::IntegrationTest
       post '/carted_products.json',
            params: { product_id: @product.id, quantity: 2 },
            headers: { 'Authorization' => "Bearer #{@jwt}" }
-      assert_response 200
+      assert_response :ok
 
       data = JSON.parse(response.body)
       assert_equal 'carted', data['status']
@@ -37,7 +37,7 @@ class CartedProductsControllerTest < ActionDispatch::IntegrationTest
   test 'destroy' do
     delete "/carted_products/#{@carted_product.id}.json",
            headers: { 'Authorization' => "Bearer #{@jwt}" }
-    assert_response 200
+    assert_response :ok
 
     @carted_product.reload
     assert_equal 'removed', @carted_product.status

@@ -23,9 +23,9 @@ class ProductsController < ApplicationController
     )
     if @product.valid?
       Image.create(product_id: @product.id, url: params[:image_url])
-      render :show, status: 200
+      render :show, status: :ok
     else
-      render json: { errors: @product.errors.full_messages }, status: 422
+      render json: { errors: @product.errors.full_messages }, status: :unprocessable_content
     end
   end
 
@@ -42,9 +42,9 @@ class ProductsController < ApplicationController
       description: params[:description] || @product.description
     )
     if @product.valid?
-      render :show, status: 200
+      render :show, status: :ok
     else
-      render json: { errors: @product.errors.full_messages }, status: 422
+      render json: { errors: @product.errors.full_messages }, status: :unprocessable_content
     end
   end
 

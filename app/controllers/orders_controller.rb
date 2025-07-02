@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
       total: calculated_total
     )
 
-    carted_products.update_all(status: 'purchased', order_id: @order_id)
+    carted_products.update(status: 'purchased', order_id: @order_id)
 
     render :show
   end

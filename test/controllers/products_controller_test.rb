@@ -12,7 +12,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test 'index' do
     get '/products.json'
-    assert_response 200
+    assert_response :ok
 
     data = JSON.parse(response.body)
     assert_equal Product.count, data.length
@@ -20,7 +20,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test 'show' do
     get "/products/#{Product.first.id}.json"
-    assert_response 200
+    assert_response :ok
 
     data = JSON.parse(response.body)
     assert_equal ['id', 'name', 'price', 'supplier', 'tax', 'total', 'is_discounted?', 'images', 'primary_image_url', 'description', 'categories', 'created_at', 'updated_at'].sort,
@@ -33,18 +33,18 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
            params: { name: 'test', price: 10, image_url: 'test.jpg', description: 'test description',
                      supplier_id: Supplier.first.id },
            headers: { 'Authorization' => "Bearer #{@jwt}" }
-      assert_response 200
+      assert_response :ok
     end
 
     assert_difference 'Product.count', 0 do
       post '/products.json',
            params: {},
            headers: { 'Authorization' => "Bearer #{@jwt}" }
-      assert_response 422
+      assert_response :unprocessable_content
     end
 
     post '/products.json', params: {}
-    assert_response 401
+    assert_response :unauthorized
   end
 
   test 'update' do
@@ -52,7 +52,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     patch "/products/#{product.id}.json",
           params: { name: 'Updated name' },
           headers: { 'Authorization' => "Bearer #{@jwt}" }
-    assert_response 200
+    assert_response :ok
 
     data = JSON.parse(response.body)
     assert_equal 'Updated name', data['name']
@@ -62,19 +62,19 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     patch "/products/#{product.id}.json",
           params: { name: '' },
           headers: { 'Authorization' => "Bearer #{@jwt}" }
-    assert_response 422
+    assert_response :unprocessable_content
 
     patch "/products/#{product.id}.json"
-    assert_response 401
+    assert_response :unauthorized
   end
 
   test 'destroy' do
     assert_difference 'Product.count', -1 do
       delete "/products/#{Product.first.id}.json", headers: { 'Authorization' => "Bearer #{@jwt}" }
-      assert_response 200
+      assert_response :ok
     end
 
     delete "/products/#{Product.first.id}.json"
-    assert_response 401
+    assert_response :unauthorized
   end
 end
