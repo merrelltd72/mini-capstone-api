@@ -9,12 +9,7 @@ class ApplicationController < ActionController::Base
 
     token = auth_headers[/(?<=\A(Bearer ))\S+\z/]
     begin
-      decoded_token = JWT.decode(
-        token,
-        Rails.application.credentials.fetch(:secret_key_base),
-        true,
-        { algorithm: 'HS256' }
-      )
+      decoded_token = generate_decoded_token(token)
       User.find_by(id: decoded_token[0]['user_id'])
     rescue JWT::ExpiredSignature
       nil
@@ -31,5 +26,16 @@ class ApplicationController < ActionController::Base
     return if current_user&.admin
 
     render json: {}, status: :unauthorized
+  end
+
+  private
+
+  def generate_decoded_token(token)
+    JWT.decode(
+      token,
+      Rails.application.credentials.fetch(:secret_key_base),
+      true,
+      { algorithm: 'HS256' }
+    )
   end
 end
