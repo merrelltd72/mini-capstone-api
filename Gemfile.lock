@@ -138,7 +138,6 @@ GEM
     matrix (0.4.3)
     method_source (1.1.0)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.9)
     minitest (5.25.5)
     msgpack (1.8.0)
     net-imap (0.5.10)
@@ -151,28 +150,21 @@ GEM
     net-smtp (0.5.1)
       net-protocol
     nio4r (2.7.4)
-    nokogiri (1.18.9)
-      mini_portile2 (~> 2.8.2)
-      racc (~> 1.4)
-    nokogiri (1.18.9-aarch64-linux-gnu)
-      racc (~> 1.4)
-    nokogiri (1.18.9-arm-linux-gnu)
-      racc (~> 1.4)
-    nokogiri (1.18.9-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.18.9-x86_64-darwin)
-      racc (~> 1.4)
     nokogiri (1.18.9-x86_64-linux-gnu)
       racc (~> 1.4)
     parallel (1.27.0)
     parser (3.3.9.0)
       ast (~> 2.4.1)
       racc
+<<<<<<< HEAD
     pg (1.6.2)
     pg (1.6.2-aarch64-linux)
     pg (1.6.2-arm64-darwin)
     pg (1.6.2-x86_64-darwin)
     pg (1.6.2-x86_64-linux)
+=======
+    pg (1.6.1-x86_64-linux)
+>>>>>>> ef36c073cb8a2184fe5fd2d3684440d7b7c6d370
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
@@ -184,10 +176,17 @@ GEM
       date
       stringio
     public_suffix (6.0.2)
+<<<<<<< HEAD
     puma (7.0.1)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.1)
+=======
+    puma (6.6.1)
+      nio4r (~> 2.0)
+    racc (1.8.1)
+    rack (3.2.0)
+>>>>>>> ef36c073cb8a2184fe5fd2d3684440d7b7c6d370
     rack-cors (3.0.0)
       logger
       rack (>= 3.0.14)
@@ -256,8 +255,13 @@ GEM
       rspec-expectations (~> 3.13)
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
+<<<<<<< HEAD
     rspec-support (3.13.5)
     rubocop (1.80.2)
+=======
+    rspec-support (3.13.4)
+    rubocop (1.79.2)
+>>>>>>> ef36c073cb8a2184fe5fd2d3684440d7b7c6d370
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
@@ -291,7 +295,11 @@ GEM
       rubocop (~> 1.72, >= 1.72.1)
       rubocop-rspec (~> 3.5)
     ruby-progressbar (1.13.0)
+<<<<<<< HEAD
     rubyzip (3.1.0)
+=======
+    rubyzip (3.0.1)
+>>>>>>> ef36c073cb8a2184fe5fd2d3684440d7b7c6d370
     securerandom (0.4.1)
     selenium-webdriver (4.35.0)
       base64 (~> 0.2)
@@ -337,11 +345,6 @@ GEM
     zeitwerk (2.7.3)
 
 PLATFORMS
-  aarch64-linux
-  arm-linux
-  arm64-darwin
-  x86-linux
-  x86_64-darwin
   x86_64-linux
 
 DEPENDENCIES
