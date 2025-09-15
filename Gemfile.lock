@@ -156,19 +156,11 @@ GEM
     parser (3.3.9.0)
       ast (~> 2.4.1)
       racc
-<<<<<<< HEAD
-    pg (1.6.2)
-    pg (1.6.2-aarch64-linux)
-    pg (1.6.2-arm64-darwin)
-    pg (1.6.2-x86_64-darwin)
     pg (1.6.2-x86_64-linux)
-=======
-    pg (1.6.1-x86_64-linux)
->>>>>>> ef36c073cb8a2184fe5fd2d3684440d7b7c6d370
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
-    prism (1.4.0)
+    prism (1.5.1)
     pry (0.15.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -176,17 +168,10 @@ GEM
       date
       stringio
     public_suffix (6.0.2)
-<<<<<<< HEAD
-    puma (7.0.1)
+    puma (7.0.3)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.1)
-=======
-    puma (6.6.1)
-      nio4r (~> 2.0)
-    racc (1.8.1)
-    rack (3.2.0)
->>>>>>> ef36c073cb8a2184fe5fd2d3684440d7b7c6d370
     rack-cors (3.0.0)
       logger
       rack (>= 3.0.14)
@@ -234,7 +219,7 @@ GEM
     regexp_parser (2.11.2)
     reline (0.6.2)
       io-console (~> 0.5)
-    rexml (3.4.3)
+    rexml (3.4.4)
     rspec (3.13.1)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
@@ -255,13 +240,8 @@ GEM
       rspec-expectations (~> 3.13)
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
-<<<<<<< HEAD
     rspec-support (3.13.5)
     rubocop (1.80.2)
-=======
-    rspec-support (3.13.4)
-    rubocop (1.79.2)
->>>>>>> ef36c073cb8a2184fe5fd2d3684440d7b7c6d370
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
@@ -295,11 +275,7 @@ GEM
       rubocop (~> 1.72, >= 1.72.1)
       rubocop-rspec (~> 3.5)
     ruby-progressbar (1.13.0)
-<<<<<<< HEAD
     rubyzip (3.1.0)
-=======
-    rubyzip (3.0.1)
->>>>>>> ef36c073cb8a2184fe5fd2d3684440d7b7c6d370
     securerandom (0.4.1)
     selenium-webdriver (4.35.0)
       base64 (~> 0.2)
@@ -325,9 +301,9 @@ GEM
       railties (>= 7.1.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    unicode-display_width (3.1.5)
-      unicode-emoji (~> 4.0, >= 4.0.4)
-    unicode-emoji (4.0.4)
+    unicode-display_width (3.2.0)
+      unicode-emoji (~> 4.1)
+    unicode-emoji (4.1.0)
     uri (1.0.3)
     useragent (0.16.11)
     web-console (4.2.1)
